@@ -1,5 +1,6 @@
 import './App.css';
-import Inbox from './pages/Inbox/Inbox.js';
+import Project from './pages/Project/Projects.js';
+
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
           This is SprintDay
         </p>
         
-       <Inbox />
+       <Project />
     </div>
   );
 }

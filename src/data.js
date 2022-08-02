@@ -24,7 +24,7 @@ const listData = {
             taskIds: ['task-1', 'task-2', 'task-3', 'task-4']
         }
     },
-    columnOrder: ['column-1'],
+    columnOrder: ['column-1','column-2', 'column-3'],
 };
 
 export default listData;

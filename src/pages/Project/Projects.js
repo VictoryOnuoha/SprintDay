@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import listData from "../../data";
 import Column from "../../components/Column/Column";
 
-class Inbox extends Component {
+class Project extends Component {
     state = listData;
     render() {
         // This stores all our columns and maps them
@@ -15,4 +15,4 @@ class Inbox extends Component {
     }
 }
 
-export default Inbox;
+export default Project;
