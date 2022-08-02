@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {DragDropContext } from 'react-beautiful-dnd';
 import Task from "../Task/Task";
 
 
