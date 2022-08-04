@@ -1,16 +1,48 @@
-import './App.css';
-import Project from './pages/Project/Projects.js';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Projects from './pages/Project/Projects.js';
+import Dashboard from './components/Dashboard/Dashboard.js';
+import Task from './components/Task/Task.js';
 
 
 function App() {
   return (
-    <div className="App">
-        <p>
+    <Router>
+       <p>
           This is SprintDay
         </p>
+      <Switch>
         
-       <Project />
-    </div>
+        <Route 
+          path='/' 
+          exact 
+          render={(routeProps) => {
+            return(
+              <Dashboard {...routeProps} />
+            );
+          }} 
+        />
+
+        <Route 
+          path='/projects' 
+          render={(routeProps) => {
+            return(
+              <Projects {...routeProps} />
+            );
+          }}
+        />
+
+        <Route 
+          path='/task' 
+          render={(routeProps) => {
+            return(
+              <Task {...routeProps}/>
+            )
+          } } 
+        />
+
+      </Switch>
+       
+    </Router>
   );
 }
 
