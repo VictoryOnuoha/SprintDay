@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
+import { Draggable } from 'react-beautiful-dnd';
 import './Task.scss';
 class Task extends Component {
     render () {
         return (
-            <main className='task'>
-                <p className='task__content' >{this.props.task.content}</p>
+            <Draggable draggableId={this.props.task.id} index={this.props.index}>
+             {(provided) => (  
+            <main 
+                className='task'
+                {...provided.draggableProps}
+                {...provided.dragHandleProps}
+                ref={provided.innerRef}>
+                    <p className='task__content'>
+                        {this.props.task.content}
+                    </p>
             </main>
-        )
+             )} 
+            </Draggable>
+        );
     }
 }
 

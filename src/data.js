@@ -1,25 +1,27 @@
+import { v4 as uuid } from 'uuid';
+
 const listData = {
     // This contains the tasks 
     tasks: {
-        'task-1': {id: 'task-1', content:'Go for walk'},
-        'task-2': {id: 'task-2', content:'Pay taxes'},
-        'task-3': {id: 'task-3', content:'Investment meeting'},
-        'task-4': {id: 'task-3', content:'Brand Photoshoot'},
+        'task-1': {id: uuid(), content:'Go for walk'},
+        'task-2': {id: uuid(), content:'Pay taxes'},
+        'task-3': {id: uuid(), content:'Investment meeting'},
+        'task-4': {id: uuid(), content:'Brand Photoshoot'},
 
     },
     columns: {
         'column-1': {
-            id: 'column-1',
+            id: uuid(),
             title: 'TO DO',
             taskIds: ['task-1', 'task-2', 'task-3', 'task-4']
         },
         'column-2': {
-            id: 'column-2',
+            id: uuid(),
             title: 'IN PROGRESS',
             taskIds: ['task-1', 'task-2', 'task-3', 'task-4']
         },
         'column-3': {
-            id: 'column-3',
+            id: uuid(),
             title: 'DONE',
             taskIds: ['task-1', 'task-2', 'task-3', 'task-4']
         }

@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {DragDropContext } from 'react-beautiful-dnd';
+import { Droppable } from "react-beautiful-dnd";
 import Task from "../Task/Task";
 
 
@@ -11,12 +11,22 @@ class Column extends Component {
                 <article>
                     <h3>{this.props.column.title}</h3>
                 </article>
-                <section>
-                    {this.props.tasks.map(task => <Task key={task.id} task={task}/>)}
-                </section>
 
+                <Droppable droppableId={this.props.column.id}>
+                    {(provided) => (
+                        <section
+                            ref={provided.innerRef}
+                            {...provided.droppableProps}
+                            className='droppable'>
+
+                            {this.props.tasks.map((task,index) => <Task key={task.id} index={index} task={task} /> )}
+                            {provided.placeholder}
+                        </section>
+                    )}
+
+                </Droppable>
             </main>
-        )
+        );
     }
 }
 
