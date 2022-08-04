@@ -1,0 +1,16 @@
+//breakpoint variables 
+$tablet-breakpoint: 48rem;
+$desktop-breakpoint: 80rem;
+
+//Media queries for tablet 
+@mixin tablet {
+    @media (min-width: $tablet-breakpoint) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $desktop-breakpoint) {
+        @content;
+    }
+}
