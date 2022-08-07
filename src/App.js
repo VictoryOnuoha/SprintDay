@@ -2,14 +2,13 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Projects from './pages/Project/Projects.js';
 import Dashboard from './components/Dashboard/Dashboard.js';
 import Task from './components/Task/Task.js';
+import Header from './components/Header/Header.js';
 
 
 function App() {
   return (
     <Router>
-       <p>
-          This is SprintDay
-        </p>
+      <Header/>
       <Switch>
         
         <Route 
