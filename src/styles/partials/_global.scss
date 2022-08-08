@@ -1,5 +1,6 @@
 @use '../partials/fonts';
 @use '../partials/colors';
+@use '../partials/mixins';
 
 *,
 *::before,
@@ -37,5 +38,42 @@ body {
 
     &__title {
         font-size: 1.2rem;
+    }
+    &__nav {
+        display: none;
+        @include mixins.tablet {
+            display: block ;
+        }
+    }
+    &__list {
+        display: flex;
+    }
+    &__list-item {
+        list-style-type: none;
+        padding-right: 1rem;
+    }
+    &__hamburger {
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        z-index: 2rem;
+
+        @include mixins.tablet {
+            display: none;
+        }
+
+    }
+
+    &__hamburger1, 
+    &__hamburger2,
+    &__hamburger3  {
+        background-color: colors.$primary-black ;
+        width: 2rem;
+        height: 0.2rem;
+        border-radius: 0.625rem;
+        // transition: all 0.5s linear;
+        // transform-origin: 0.0625rem;
     }
 }
