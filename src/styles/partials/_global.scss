@@ -1,0 +1,41 @@
+@use '../partials/fonts';
+@use '../partials/colors';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Lato';
+}
+
+.header {
+    &__logo-text {
+        font-size: 1.6rem;
+        font-family: 'Montserrat';
+        text-align: center;
+        color: colors.$primary-blue;
+    }
+
+    &__user {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+    }
+    &__image {
+        margin: 0 0 0 1rem ;
+    }
+
+    &__avatar {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+    }
+
+    &__title {
+        font-size: 1.2rem;
+    }
+}

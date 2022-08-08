@@ -1,5 +1,5 @@
-
-
+import '../../styles/partials/_global.scss';
+import avatar from '../../assets/icons/avatar.svg';
 function Header () {
     return (
         <header className='header' >
@@ -8,27 +8,23 @@ function Header () {
             </section>
 
             <section className='header__user' >
-                <article className='heade' >
-                    <img src='' alt='avatar of user' />
+                <article className='header__image' >
+                    <img className='header__avatar' src={avatar} alt='avatar of user' />
                 </article>
 
-                <article className='' >
-                    <h2 className='' >Hello Stella!</h2>
+                <article className='header__title-box' >
+                    <h2 className='header__title' >Hello Stella!</h2>
                 </article>
                 
             </section>
 
-            <section className='' >
-                <ul className='' >
-                    <li className='' >DASHBOARD</li>
-                    <li className='' >PROJECTS</li>
-                    <li className='' >TASKS</li>
+            <section className='nav' >
+                <ul className='nav__list' >
+                    <li className='nav__list-item' >DASHBOARD</li>
+                    <li className='nav__list-item' >PROJECTS</li>
+                    <li className='nav__list-item' >TASKS</li>
                 </ul>
             </section>
-
-
-
-
 
         </header>
     )
