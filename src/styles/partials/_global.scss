@@ -47,6 +47,8 @@ body {
     }
     &__list {
         display: flex;
+        flex-wrap: wrap;
+        float: left;
     }
     &__list-item {
         list-style-type: none;

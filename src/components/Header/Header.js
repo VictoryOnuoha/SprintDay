@@ -1,15 +1,20 @@
+import React, {Component} from 'react';
 import '../../styles/partials/_global.scss';
-import {useState} from 'react';
-
 import avatar from '../../assets/icons/avatar.svg';
 
-function Header () {
-    const [hamburgermenu, setHamburgermenu] = useState(false);
-
-    const toggleHamburgerMenu = () => {
-        setHamburgermenu(!hamburgermenu)
+class Header extends Component {
+    state = {
+        displayMenu: false
     }
-
+   
+    render() {
+        const handleClick = (e) => {
+            e.preventDefault();
+            this.setState({
+                displayMenu: true
+            })
+            console.log('You clicked a button')
+        }
     return (
         <header className='header' >
             <section className='header__logo'>
@@ -28,7 +33,7 @@ function Header () {
             </section>
             {/* Will be displayed in tablet and desktop */}
             <section className='header__nav' >
-                <ul className='header__list' >
+                <ul className='header__list'  >
                     <li className='header__list-item' >DASHBOARD</li>
                     <li className='header__list-item' >PROJECTS</li>
                     <li className='header__list-item' >TASKS</li>
@@ -36,7 +41,7 @@ function Header () {
             </section>
 
             {/* Will be displayed in mobile: Hamburger menu */}
-            <section className='header__hamburger' >
+            <section className='header__hamburger' onClick={handleClick}  >
                 <div className='header__hamburger1'></div>
                 <div className='header__hamburger2'></div>
                 <div className='header__hamburger3'></div>
@@ -44,6 +49,8 @@ function Header () {
 
         </header>
     )
+    }
+
 }
 
 export default Header 
