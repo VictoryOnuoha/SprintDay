@@ -1,7 +1,6 @@
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Projects from './pages/Project/Projects.js';
 import Dashboard from './components/Dashboard/Dashboard.js';
-import Task from './components/Task/Task.js';
+import Tasks from './pages/Tasks/Tasks.js';
 import Header from './components/Header/Header.js';
 
 
@@ -25,24 +24,17 @@ function App() {
           path='/projects' 
           render={(routeProps) => {
             return(
-              <Projects {...routeProps} />
+              <Tasks {...routeProps} />
             );
           }}
         />
 
-        <Route 
-          path='/task' 
-          render={(routeProps) => {
-            return(
-              <Task {...routeProps}/>
-            )
-          } } 
-        />
+      
 
       </Switch>
        
     </Router>
-  );
+  )
 }
 
 export default App;
