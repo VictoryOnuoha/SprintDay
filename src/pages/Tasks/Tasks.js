@@ -20,17 +20,20 @@ class Tasks extends Component {
         }
 
         // reorder taskId array for the column; reflect drag and drop
-        const column = this.state.columns[source.droppableId];
+        const start = this.state.columns[source.droppableId];
+        const finish = this.state.columns[destination.droppableId];
 
+        if (start === finish) {
+                
         // create new object for the columns that have changed; non mutating
-        const newTaskIds = Array.from(column.taskIds);
+        const newTaskIds = Array.from(start.taskIds);
 
         // move the task index from its old index to the new index in its array
         newTaskIds.splice(source.index, 1);
         newTaskIds.splice(destination.index, 0, draggableId);
 
         const newColumn = {
-            ...column,
+            ...start,
             taskIds: newTaskIds,
         };
 
@@ -43,6 +46,35 @@ class Tasks extends Component {
         };
 
         this.setState(newState);
+        return;
+        }
+
+        //Moving from one column to another
+        const startTaskIds = Array.from(start.taskIds);
+        startTaskIds.splice(source.index, 1);
+        const newStart = {
+            ...start,
+            taskIds: startTaskIds,
+        };
+        const finishTaskIds = Array.from (finish.taskIds);
+        //insert draggable id at destination index
+        finishTaskIds.splice(destination.index, 0, draggableId);
+        const newFinish = {
+            ...finish,
+            taskIds: finishTaskIds,
+        };
+
+        //update state after moving from tasks  column to next
+        const newState = {
+            ...this.state,
+            columns: {
+                ...this.state.columns,
+                [newStart.id]: newStart,
+                [newFinish.id]: newFinish,
+            },
+        };
+        this.setState(newState);
+
     };
 
     render() {
