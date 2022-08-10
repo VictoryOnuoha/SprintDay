@@ -1,7 +1,6 @@
-import { v4 as uuid } from 'uuid';
 
 const listData = {
-    // This contains the tasks 
+
     tasks: {
         'task-1': {id: "task-1", content:'Go for walk'},
         'task-2': {id: "task-2", content:'Pay taxes'},

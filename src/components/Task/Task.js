@@ -11,8 +11,8 @@ class Task extends Component {
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     ref={provided.innerRef}
-                    isdragging={snapshot.isDragging} >
-                         <div className='task__control'></div>
+                    isdragging={snapshot.isDragging}
+                     >
                         <p className='task__content'>
                             {this.props.task.content}
                         </p>
