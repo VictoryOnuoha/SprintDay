@@ -1,0 +1,18 @@
+@use '../../styles/partials/colors';
+@use '../../styles/partials/mixins';
+
+
+.column {
+    margin: 0.5rem;
+    border: 0.0625rem solid colors.$secondary-grey;
+    border-radius: 0.125rem;
+    width: 33%;
+
+    &__title{
+        padding: 0.5rem;
+    }
+    &__droppable{
+        padding: 0.5rem;
+        min-height: 6.25rem;
+    }
+}

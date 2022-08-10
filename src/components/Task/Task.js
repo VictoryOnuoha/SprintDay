@@ -5,18 +5,23 @@ class Task extends Component {
     render () {
         return (
             <Draggable draggableId={this.props.task.id} index={this.props.index}>
-             {(provided) => (  
-            <main 
-                className='task'
-                {...provided.draggableProps}
-                {...provided.dragHandleProps}
-                ref={provided.innerRef}>
-                    <p className='task__content'>
-                        {this.props.task.content}
-                    </p>
-            </main>
+             {(provided, snapshot) => (  
+                <main 
+                    className='task'
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    ref={provided.innerRef}
+                    isdragging={snapshot.isDragging} >
+                         <div className='task__control'></div>
+                        <p className='task__content'>
+                            {this.props.task.content}
+                        </p>
+                        {provided.placeholder}
+                </main>
              )} 
+             
             </Draggable>
+            
         );
     }
 }

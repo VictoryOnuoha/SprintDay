@@ -1,0 +1,100 @@
+@use '../partials/fonts';
+@use '../partials/colors';
+@use '../partials/mixins';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Lato';
+}
+
+.header {
+    &__logo-text {
+        font-size: 1.6rem;
+        font-family: 'Montserrat';
+        text-align: center;
+        color: colors.$primary-blue;
+    }
+
+    &__navigation {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        @include mixins.desktop {
+            justify-content: space-between;
+            margin: 0 0 0 3rem;
+        }
+    }
+
+    &__user {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+    }
+    &__image {
+        margin: 0 0 0 1rem ;
+    }
+
+    &__avatar {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+    }
+    &__title-box {
+        margin-top: 1rem;
+        @include mixins.tablet {
+            margin: 0 0 0 3rem ;
+        }
+    }
+    &__title {
+        font-size: 1.2rem;
+        @include mixins.tablet {
+            font-size: 1.5rem ;
+        }
+    }
+    &__nav {
+        display: none;
+        @include mixins.tablet {
+            display: block ;
+        }
+    }
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        // float: left;
+        
+    }
+    &__list-item {
+        list-style-type: none;
+        padding-right: 1rem;
+    }
+    &__hamburger {
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        z-index: 2rem;
+
+        @include mixins.tablet {
+            display: none;
+        }
+
+    }
+
+    &__hamburger1, 
+    &__hamburger2,
+    &__hamburger3  {
+        background-color: colors.$primary-black ;
+        width: 2rem;
+        height: 0.2rem;
+        border-radius: 0.625rem;
+        // transition: all 0.5s linear;
+        // transform-origin: 0.0625rem;
+    }
+}

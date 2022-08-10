@@ -1,0 +1,54 @@
+@use '../../styles/partials/colors';
+@use '../../styles/partials/global';
+@use '../../styles/partials/mixins';
+
+.dashboard {
+    &__title,
+    &__active {
+        margin: 0 0 0 1rem;
+    }
+    &__title-box {
+        margin: 0 0 0.5rem 0;
+        @include mixins.tablet {
+            margin: 1rem 0 1rem 3rem;
+        }
+    }
+    &__message-box {
+        background-color: colors.$background-blue;
+        margin: 0  1rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        @include mixins.tablet {
+            margin: 0 3rem;
+            width: 80%;
+        }
+    }
+
+    &__message {
+        margin: 0.5rem;
+    }
+    &__active {
+        margin: 2rem 0 0 1rem;
+        @include mixins.tablet {
+            margin: 2rem 0 0 3rem;
+        }
+    }
+    &__project {
+        background-color: colors.$primary-green;
+    }
+
+    &__tasks {
+        margin: 1rem 1rem 0 1rem;
+        @include mixins.tablet {
+            margin: 1rem 3rem 0 3rem;
+            width: 80%;
+        }
+    }
+    &__task {
+        border-radius: 0.5rem;
+        border: 0.05rem solid colors.$alert-red;
+        padding: 0.5rem;
+
+    }
+    
+}

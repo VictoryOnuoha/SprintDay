@@ -1,8 +1,23 @@
+@use '../../styles/partials/colors';
+@use '../../styles/partials/mixins';
+
 
 .task {
-    border: 0.0625rem solid lightgrey;
+    border: 0.0625rem solid colors.$secondary-grey;
+    background-color: colors.$primary-white;
     padding: 0.5rem;
     border-radius: 0.08rem;
     margin-bottom: 0.5rem;
-    width: 30%;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__control {
+        width: 1.25rem;
+        height: 1.25rem;
+        background-color: colors.$primary-blue ;
+        margin: 0.5rem;
+        border-radius: 0.25rem;
+    }
 }
