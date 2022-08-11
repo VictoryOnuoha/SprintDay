@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {DragDropContext} from "react-beautiful-dnd"
+import { Link } from "react-router-dom";
 import axios from 'axios';
 import listData from "../../data";
 import Column from "../../components/Column/Column";
@@ -102,15 +103,16 @@ class Tasks extends Component {
     render() {
         // This stores all our columns and maps them
         return (
+            
             (this.state.listData.length === 0) ? (<h1>Loading..</h1>) :   
          (   <DragDropContext onDragEnd={this.onDragEnd}>
+                <section>
+                    <Link to='/projects/add' >
+                    <button>+ Add New Task</button>
+                    </Link>
+                </section>
                 <section className="dragcontext" >
-                {/* {this.state.listData[0].columns.map(column => {
-                    // const column = this.state.columns[column];
-                    const tasks = column.taskIds.map(taskId => this.state.tasks[taskId]);
-
-                    return <Column key={column.id} column={column} tasks={tasks}/>
-                })}; */}
+             
                 {Object.entries(this.state.listData[0].columns).map(([id, column2 ]) => {
                     const column = this.state.listData[0].columns[id];
                     console.log(column);

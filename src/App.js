@@ -2,6 +2,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Dashboard from './components/Dashboard/Dashboard.js';
 import Tasks from './pages/Tasks/Tasks.js';
 import Header from './components/Header/Header.js';
+import AddNewTask from './components/AddNewTask/AddNewTask.js';
 
 
 function App() {
@@ -26,6 +27,12 @@ function App() {
             return(
               <Tasks {...routeProps} />
             );
+          }}
+        />
+        <Route
+          path="projects/add"
+          render={(routeProps) => {
+            return <AddNewTask {...routeProps} />
           }}
         />
 
