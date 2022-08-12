@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {DragDropContext} from "react-beautiful-dnd"
-import { Link } from "react-router-dom";
 import axios from 'axios';
 import listData from "../../data";
 import Column from "../../components/Column/Column";
@@ -29,6 +28,8 @@ class Tasks extends Component {
             console.log("Error", err)
         })
     }
+
+  
 
     onDragEnd = result => {
         const {draggableId, source, destination} = result;
@@ -107,9 +108,7 @@ class Tasks extends Component {
             (this.state.listData.length === 0) ? (<h1>Loading..</h1>) :   
          (   <DragDropContext onDragEnd={this.onDragEnd}>
                 <section>
-                    <Link to='/projects/add' >
                     <button>+ Add New Task</button>
-                    </Link>
                 </section>
                 <section className="dragcontext" >
              
