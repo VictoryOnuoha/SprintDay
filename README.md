@@ -1,4 +1,4 @@
-# SprintDay
+# SprintDay *(In Progress)
 A task management software for the busy bee 🐝 ⏱️ 💼
 
 
