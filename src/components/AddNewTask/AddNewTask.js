@@ -1,83 +1,39 @@
 import axios from "axios";
-import React, {Component} from "react";
-import {Link} from "react-router-dom";
-import backArrow from "../../assets/icons/back-arrow.svg";
-
+import { useState } from "react";
+import {v4 as uuid } from 'uuid';
 const SERVER_URL = process.env.REACT_APP_SERVER_URL
 
-class AddNewTask extends Component {
-    state = {
-        content: ""
-    }
+function AddNewTask(props) {
 
-    isFormValid = () => {
-        if (
-            !this.state.content
-        ) {
-            return false;
-        }
-    }
+ const [input, setInput] = useState('');
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        const taskDetails = {
-            content: this.state.content,
-        };
-        axios.post(`${SERVER_URL}/projects/add`, taskDetails)
-        .then(() => {
-            e.target.reset();
-            alert("New Task has been added");
+const handleChange = e => {
+    setInput(e.target.value);
+    console.log(setInput(e.target.value));
+}
+const handleSubmit = e => {
+    e.preventDefault();
 
-            this.props.history.push("/projects");
-        })
-        .catch(err => {
-            console.log("Error", err)
-        })
-    };
+    props.onSubmit({
+        id: uuid(),
+        text: input
+    })
 
-    handleCancel = (e) => {
-        e.preventDefault();
-        this.props.history.goBack();
-    };
+    setInput('');
+};
 
-       render() {
         return (
-            <main>
-                <section>
-                    <Link to={'/projects'} >
-                        <img src={backArrow} alt=' go back to last page' />
-                    </Link>
-                    <h1>Add New Task</h1>
-                </section>
-
-                <form type='submit' onSubmit={this.handleSubmit} >
-                    <label htmlFor="content" >
-                     TASK DESCRIPTION
-                     <input name='content'
-                        value={this.state.content}/>  
-                        {!this.state.content && (
-                            <span>
-                                <img src='' alt='error' />
-                                <p> This field is required</p>
-                            </span>
-                        )} 
-                    </label>
-                    <section>
-                        <button
-                        type='reset'
-                        onClick={this.handleCancel}> 
-                        Cancel
-                        </button>
-                        <button
-                        disabled={!this.isFormValid()}> 
-                        +Add Task</button>
-                    </section>
+            <main onSubmit={handleSubmit}  >
+                <form>
+                    <button>+ Add New Task</button>
+                    <input 
+                        type='text'
+                        placeholder='Add a new task'
+                        value={input}
+                        onChange={handleChange} />
                 </form>
-
-
             </main>
         )
-       }
 }
 
 export default AddNewTask;

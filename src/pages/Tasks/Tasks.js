@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import {DragDropContext} from "react-beautiful-dnd"
 import axios from 'axios';
-import listData from "../../data";
 import Column from "../../components/Column/Column";
+import TaskList from "../../components/TaskList/TaskList";
 import './Tasks.scss';
 
 
@@ -12,6 +12,7 @@ class Tasks extends Component {
     state = {
         listData: []
     }
+
 
     componentDidMount(){
         axios
@@ -107,9 +108,8 @@ class Tasks extends Component {
             
             (this.state.listData.length === 0) ? (<h1>Loading..</h1>) :   
          (   <DragDropContext onDragEnd={this.onDragEnd}>
-                <section>
-                    <button>+ Add New Task</button>
-                </section>
+               <TaskList/>
+
                 <section className="dragcontext" >
              
                 {Object.entries(this.state.listData[0].columns).map(([id, column2 ]) => {
