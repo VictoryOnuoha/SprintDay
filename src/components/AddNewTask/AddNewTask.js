@@ -1,11 +1,18 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {v4 as uuid } from 'uuid';
 const SERVER_URL = process.env.REACT_APP_SERVER_URL
 
 function AddNewTask(props) {
 
  const [input, setInput] = useState('');
+
+ const inputRef = useRef(null);
+ 
+ useEffect(() => {
+    inputRef.current.focus()
+ } )
+
 
 const handleChange = e => {
     setInput(e.target.value);
