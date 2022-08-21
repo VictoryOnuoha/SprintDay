@@ -7,7 +7,7 @@ import './Tasks.scss';
 
 
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
-console.log(SERVER_URL);
+// console.log(SERVER_URL);
 class Tasks extends Component {
     state = {
         listData: []
@@ -29,6 +29,7 @@ class Tasks extends Component {
             console.log("Error", err)
         })
     }
+    
 
   
 
@@ -114,7 +115,7 @@ class Tasks extends Component {
              
                 {Object.entries(this.state.listData[0].columns).map(([id, column2 ]) => {
                     const column = this.state.listData[0].columns[id];
-                    console.log(column);
+                    // console.log(column);
                      const tasks = column.taskIds.map(taskId => this.state.listData[0].tasks[taskId]);
                     return (
                         

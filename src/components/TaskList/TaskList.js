@@ -1,8 +1,12 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 import AddNewTask from '../AddNewTask/AddNewTask';
 import BackLog from '../BackLog/BackLog';
 
+
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 function TaskList() {
+    
     const [todos, setTodos] = useState([]);
     // add to do function 
     const addTodo = todo => {
@@ -11,10 +15,11 @@ function TaskList() {
             return;
         }
         const newTodos = [todo, ...todos];
-        setTodos(newTodos)
-        console.log(...todos);
+        console.log(newTodos);
+        setTodos(newTodos);
+        
     }
-    
+
     // edit to do 
     const updateTodo = (todoId, newTodo) => {
         if(!newTodo.text || /^\s*$/.test(newTodo.text)) {
@@ -40,10 +45,13 @@ function TaskList() {
         });
         setTodos(updatedTodos);
     } 
+
+   
+   
     return (
         <main>
             <h1> Whats the plan for this week?</h1>
-            <AddNewTask onSubmit={addTodo} />
+            <AddNewTask  onSubmit={addTodo} />
             <BackLog
                 todos={todos}
                 completeTodo={completeTodo}
