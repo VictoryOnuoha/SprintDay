@@ -31,6 +31,7 @@ SPRINTDAY will help them focus and stay organized by tracking their goals using 
 | `id`      | `string` | **Required**. Id of item to fetch |
 
 #### returns list of tasks (for now) but will return projects as well
+### api is avaliable, please see SprintDay api on my repositories
 
 
 
