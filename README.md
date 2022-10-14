@@ -64,4 +64,8 @@ To run this project, you will need to add the following environment variables to
 
 `CLIENT_URL=http://localhost:3000`
 
+## LIVE PREVIEW 
+![sprint day home page](https://user-images.githubusercontent.com/34638854/195739237-c7b0ab39-5ce3-4546-bf8b-9b1c6c947e59.png)
+
+![sprint day task page](https://user-images.githubusercontent.com/34638854/195739248-94764bc5-7082-40a9-863f-d03b4d71221c.png)
 
